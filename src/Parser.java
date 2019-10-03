@@ -44,22 +44,46 @@ public class Parser {
         Initialize();
 
         for(int index = 0; index < display.size(); index++) {
-            if(index <= 6) {
+            if(index <= 5) {
                 akasDisplay.add(display.get(index));
                 akasFilter.add(filter.get(index));
                 akasFilterBy.add(filterBy.get(index));
             }
-            else if (index <= 14) {
+            else if (index <= 13) {
                 titleBasicsDisplay.add(display.get(index));
                 titleBasicsFilter.add(filter.get(index));
                 titleBasicsFilterBy.add(filterBy.get(index));
             }
-            else if (index <= 16) {
+            else if (index <= 15) {
                 crewDisplay.add(display.get(index));
                 crewFilter.add(filter.get(index));
                 crewFilterBy.add(filterBy.get(index));
             }
+            else if (index <= 17) {
+                episodeDisplay.add(display.get(index));
+                episodeFilter.add(filter.get(index));
+                episodeFilterBy.add(filterBy.get(index));
+            }
+            else if (index <= 20) {
+                principalsDisplay.add(display.get(index));
+                principalsFilter.add(filter.get(index));
+                principalsFilterBy.add(filterBy.get(index));
+            }
+            else if (index <= 22) {
+                ratingsDisplay.add(display.get(index));
+                ratingsFilter.add(filter.get(index));
+                ratingsFilterBy.add(filterBy.get(index));
+            }
+            else {
+                namesDisplay.add(display.get(index));
+                namesFilter.add(filter.get(index));
+                namesFilterBy.add(filterBy.get(index));
+            }
         }
+
+        Query = "";
+        tableNames = new ArrayList<String>();
+        columnNames = new ArrayList<String>();
     }
 
     private void Initialize() {
