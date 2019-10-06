@@ -24,27 +24,27 @@ public class SelectPanel extends JPanel {
     }
 
 
-    public String [] getSearch(){
-        String Text[] = new String[3];
-        Text[0] = name.getString();
-        Text[1] = movie.getString();
-        Text[2] = TV.getString();
+    public ArrayList<String> getSearch(){
+        ArrayList<String> Text = new ArrayList<String>(3);
+        Text.add(0, name.getString());
+        Text.add(1, movie.getString());
+        Text.add(2, TV.getString());
         return Text;
     }
 
-    public Boolean [] getF(){
-        Boolean Filter[] = new Boolean[3];
-        Filter[0] = name.getFilter();
-        Filter[1] = movie.getFilter();
-        Filter[2] = TV.getFilter();
+    public ArrayList<Boolean> getF(){
+        ArrayList<Boolean> Filter = new ArrayList<Boolean>(3);
+        Filter.add(0, name.getFilter());
+        Filter.add(1, movie.getFilter());
+        Filter.add(2, TV.getFilter());
         return Filter;
     }
 
-    public Boolean [] getD(){
-        Boolean Display[] = new Boolean[3];
-        Display[0] = name.getDisplay();
-        Display[1] = movie.getDisplay();
-        Display[2] = TV.getDisplay();
+    public ArrayList<Boolean> getD(){
+        ArrayList<Boolean> Display = new ArrayList<Boolean>(3);
+        Display.add(0, name.getDisplay());
+        Display.add(1, movie.getDisplay());
+        Display.add(2, TV.getDisplay());
         return Display;
     }
 }
