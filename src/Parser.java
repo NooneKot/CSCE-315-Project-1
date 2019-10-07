@@ -206,7 +206,7 @@ public class Parser {
                                 accessFrom + ".tconst");
                     }
                     else if (tablesToAccessFrom.get(index) == "principals" && namesJoined == false) {
-                        Query.append(" JOIN principal ON principal.tconst = " + accessFrom + ".tconst");
+                        Query.append(" JOIN principals ON principals.tconst = " + accessFrom + ".tconst");
                     }
                 }
             }
