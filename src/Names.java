@@ -33,7 +33,7 @@ public class Names {
         columnNames.add("primaryname");
         columnNames.add("birthyear");
         columnNames.add("deathyear");
-        columnNames.add("primaryprofessions");
+        columnNames.add("primaryprofession");
         columnNames.add("knownfortitles");
     }
 
