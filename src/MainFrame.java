@@ -3,12 +3,15 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+//import java.sql.DriverManager;
 
 public class MainFrame extends JFrame{
 
     private ResultPanel ResultBox;
     private BottomToolbar BToolbar;
     private SelectPanel SelectArea;
+    private Statement stmt;
 
     public MainFrame(){
         super("IMDB Database");
@@ -25,12 +28,12 @@ public class MainFrame extends JFrame{
 
         add(ResultBox, BorderLayout.CENTER);
         add(BToolbar, BorderLayout.SOUTH);
-        add(SelectArea, BorderLayout.WEST);
+        add(new JScrollPane(SelectArea), BorderLayout.WEST);
 
         ResultBox.setBorder(new EmptyBorder(5, 5, 5, 5));
         SelectArea.setBorder(new EmptyBorder(2, 2, 2, 2));
 
-        setSize(800, 500);
+        setSize(900, 600);
         SelectArea.setMinimumSize(new Dimension(250, 30));
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
         setVisible(true);
