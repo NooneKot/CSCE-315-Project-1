@@ -194,7 +194,7 @@ public class Parser {
                     Query.append(" JOIN names ON principal.nconst = names.nconst");
                 }
                 else {
-                    Query.append(" JOIN names ON principal.nconst = names.nconst JOIN principal ON principal.tconst = " + accessFrom + ".tconst");
+                    Query.append(" JOIN principal ON principal.tconst = " + accessFrom + ".tconst JOIN names ON principal.nconst = names.nconst");
                 }
                 namesJoined = true;
             }
