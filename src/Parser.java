@@ -271,7 +271,7 @@ public class Parser {
             if (tablesToAccessFrom.get(i) == "names"){
                 for (int j=0; j < names.getNamesFilter().size(); j++){
                     if (names.getNamesFilter().get(j)) {
-                        temp.add(names.getColumnNames().get(j));
+                        temp.add(names.getColumnNames().get(j+1));
                         filterByList.add(names.getNamesFilterBy().get(j));
                     }
                 }
@@ -279,7 +279,7 @@ public class Parser {
             if (tablesToAccessFrom.get(i) == "principals"){
                 for (int j=0; j < principals.getPrincipalsFilter().size(); j++){
                     if (principals.getPrincipalsFilter().get(j)) {
-                        temp.add(principals.getColumnNames().get(j));
+                        temp.add(principals.getColumnNames().get(j+1));
                         filterByList.add(principals.getPrincipalsFilterBy().get(j));
                     }
                 }
@@ -287,7 +287,7 @@ public class Parser {
             if (tablesToAccessFrom.get(i) == "ratings"){
                 for (int j=0; j < ratings.getRatingsFilter().size(); j++){
                     if (ratings.getRatingsFilter().get(j)) {
-                        temp.add(ratings.getColumnNames().get(j));
+                        temp.add(ratings.getColumnNames().get(j+1));
                         filterByList.add(ratings.getRatingsFilterBy().get(j));
                     }
                 }
@@ -295,7 +295,7 @@ public class Parser {
             if (tablesToAccessFrom.get(i) == "titlebasics"){
                 for (int j=0; j < titleBasics.getTitleBasicsFilter().size(); j++){
                     if (titleBasics.getTitleBasicsFilter().get(j)) {
-                        temp.add(titleBasics.getColumnNames().get(j));
+                        temp.add(titleBasics.getColumnNames().get(j+1));
                         filterByList.add(titleBasics.getTitleBasicsFilterBy().get(j));
                     }
                 }
@@ -303,7 +303,7 @@ public class Parser {
             if (tablesToAccessFrom.get(i) == "episode"){
                 for (int j=0; j < episode.getEpisodeFilter().size(); j++){
                     if (episode.getEpisodeFilter().get(j)) {
-                        temp.add(episode.getColumnNames().get(j));
+                        temp.add(episode.getColumnNames().get(j+2));
                         filterByList.add(episode.getEpisodeFilterBy().get(j));
                     }
                 }
