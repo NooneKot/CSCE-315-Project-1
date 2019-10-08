@@ -5,12 +5,15 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.ResultSetMetaData;
+import java.io.*;
 
 public class BottomToolbar extends JPanel implements ActionListener {
     private JButton Search;
     private JButton Exit;
     private ResultPanel resultPanel;
     private SelectPanel selectPanel;
+    public JCheckBox file;
+    public JTextArea filename;
 
 
     private String[] Text;
@@ -18,6 +21,8 @@ public class BottomToolbar extends JPanel implements ActionListener {
     private Boolean[] Display;
 
     public BottomToolbar(){
+        file = new JCheckBox("Output to file: ");
+        filename = new JTextArea("output.txt", 1, 10);
         Search = new JButton("Search");
         Exit = new JButton("Exit");
 
@@ -26,6 +31,8 @@ public class BottomToolbar extends JPanel implements ActionListener {
 
         setLayout(new FlowLayout(FlowLayout.RIGHT));
 
+        add(file);
+        add(filename);
         add(Search);
         add(Exit);
     }
@@ -45,6 +52,7 @@ public class BottomToolbar extends JPanel implements ActionListener {
             p.Select();
 
             p.Join();
+            p.Where();
             StringBuffer q = p.getQuery();
             String sqlStatement = q.toString() + " LIMIT 30";
 
@@ -99,7 +107,23 @@ public class BottomToolbar extends JPanel implements ActionListener {
             } catch (Exception o){
                 System.out.print("Error accessing Database.");
             }
-            resultPanel.setResult(output);
+            if(!file.isSelected()){
+                resultPanel.setResult(output);
+            }
+            else{
+                FileOutputStream out = null;
+                try {
+                    out = new FileOutputStream(filename.getText());
+                    byte b[] = output.getBytes();
+                    out.write(b);
+                    out.close();
+                    resultPanel.setResult("Results in file: " + filename.getText() + "\n");
+                }
+                catch (Exception o){
+                    System.out.print("Error opening new file.");
+                }
+            }
+
             //closing the connection
             try {
                 conn.close();
