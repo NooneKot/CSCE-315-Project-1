@@ -54,7 +54,7 @@ public class BottomToolbar extends JPanel implements ActionListener {
             p.Join();
             p.Where();
             StringBuffer q = p.getQuery();
-            String sqlStatement = q.toString() + " LIMIT 30";
+            String sqlStatement = q.toString();
 
             dbSetup my = new dbSetup();
             //Building the connection
