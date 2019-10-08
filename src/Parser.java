@@ -325,11 +325,35 @@ public class Parser {
                 }
             }
         }
-        Query.append(" WHERE ");
+
+        if (filterByList.size() > 0) {
+            Query.append(" WHERE ");
+        }
 
         for (int k=0; k < temp.size(); k++) {
-            Query.append(temp.get(k) + "=\"" + filterByList.get(k));
-            Query.append("\" ");
+            Query.append(temp.get(k) + "=");
+            if (Boolean.valueOf(filterByList.get(k)) == true || Boolean.valueOf(filterByList.get(k)) == false || checkIfInteger(filterByList.get(k))) {
+                Query.append(filterByList.get(k));
+            }
+            else {
+                Query.append("\"" + filterByList.get(k));
+                Query.append("\" ");
+            }
+            if (k < temp.size()-1) {
+                Query.append(" AND ");
+            }
+        }
+    }
+    private Boolean checkIfInteger(String s) {
+        try {
+            // checking valid integer using parseInt() method
+            Integer.parseInt(s);
+            return true;
+        }
+        catch (NumberFormatException e) {
+            return false;
         }
     }
 }
+
+
