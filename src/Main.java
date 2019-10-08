@@ -16,6 +16,7 @@ public class Main {
         Parser parser = new Parser(display, filter, filterBy);
         parser.Select();
         parser.Join();
+        parser.Where();
         System.out.println(parser.getQuery());
     }
 
