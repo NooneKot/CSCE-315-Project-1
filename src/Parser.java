@@ -332,12 +332,12 @@ public class Parser {
 
         for (int k=0; k < temp.size(); k++) {
             Query.append(temp.get(k) + "=");
-            if (Boolean.valueOf(filterByList.get(k)) == true || Boolean.valueOf(filterByList.get(k)) == false || checkIfInteger(filterByList.get(k))) {
+            if (Boolean.valueOf(filterByList.get(k)) || checkIfInteger(filterByList.get(k))) {
                 Query.append(filterByList.get(k));
             }
             else {
-                Query.append("\"" + filterByList.get(k));
-                Query.append("\" ");
+                Query.append("'" + filterByList.get(k));
+                Query.append("' ");
             }
             if (k < temp.size()-1) {
                 Query.append(" AND ");
@@ -355,5 +355,4 @@ public class Parser {
         }
     }
 }
-
 
