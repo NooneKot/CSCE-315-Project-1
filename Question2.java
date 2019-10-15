@@ -17,7 +17,7 @@ public class Question2 { //create this class in gui
        this.year2 = year2;
        int_year1 = Integer.parseInt(year1);
        int_year2 = Integer.parseInt(year2);
-       if(exclude != null || exclude != "") {
+       if(exclude != null && exclude != "") {
            this.exclude = format_to_list(exclude);
            exFlag = true;
        }
