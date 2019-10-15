@@ -146,11 +146,9 @@ public class Q1 {
         }
     }
 
-    public void CreateGraph(String excludedActor, boolean exclusion) {
-        if (!exclusion) {
-            unsettledActors.add(sourceActor);
-            graph.addVertex(sourceActor.getName());
-        }
+    public void CreateGraph(String excludedActor) {
+        unsettledActors.add(sourceActor);
+        graph.addVertex(sourceActor.getName());
 
         while(!unsettledActors.isEmpty()) {
             Actor currentActor = unsettledActors.poll();
