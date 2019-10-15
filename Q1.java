@@ -73,6 +73,7 @@ public class Q1 {
         String input = "";
         if (Actors.size() > 1) {
             String output = "";
+            output += "There were multiple actors/actresses with that name. Please select which one you meant (enter in the number): \n"
             int count = 1;
             for (Actor a : Actors) {
                 output += count + ". " + actorName + ", Movies Known For: ";
@@ -88,7 +89,7 @@ public class Q1 {
             }
 
             // Select the Actor the user wants
-            System.out.print("There were multiple actors/actresses with that name. Please select which one you meant (enter in the number): ");
+            //System.out.print("There were multiple actors/actresses with that name. Please select which one you meant (enter in the number): ");
             input = JOptionPane.showInputDialog(output);
             //int user_input = scan.nextInt();
             int user_input = Integer.parseInt(input);
