@@ -50,7 +50,14 @@ public class BottomToolbar extends JPanel implements ActionListener {
         String output = "";
         if(clicked == Search) {
             if(sidePanel.Q1B.isSelected()){
-                //call question 1 here
+                Q1 question1 = new Q1();
+                String sourceActor = sidePanel.Q1B.sourceActor.getText();
+                question1.FindInitialActor(sourceActor, true); // need to modify this method
+                String destinationActor = sidePanel.Q1b.destinationActor.getText();
+                question1.FindInitialActor(destinationActor, true);
+                
+                question1.CreateGraph();
+                output = question1.getShortestPath(); // need to modify return type and have it return string
             }
             else if(sidePanel.Q2B.isSelected()){
                 Question2 Q2 = new Question2(sidePanel.Q2P.year1.getText(), sidePanel.Q2P.year2.getText(), sidePanel.Q2P.exclude.getText());
