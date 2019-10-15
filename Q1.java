@@ -36,7 +36,7 @@ public class Q1 {
         return graph;
     }
 
-    public boolean FindInitialActor(String actorName, Scanner scan, boolean source) {
+    public boolean FindInitialActor(String actorName, boolean source) {
         // Query Database for all actors matching actorName
         String query = "select nconst, knownfortitles from names where (primaryname = '" + actorName +"' and " +
                 "primaryprofession like '%actor%') or (primaryname = '" + actorName +"' and " + "primaryprofession like '%actress%')";
@@ -70,26 +70,33 @@ public class Q1 {
         data.CloseConnection();
 
         // If there are mulitple actors with the same name
+        String input = "";
         if (Actors.size() > 1) {
+            String output = "";
             int count = 1;
             for (Actor a : Actors) {
-                System.out.print(count + ". " + actorName + ", ");
-                System.out.print("Movies Known For: ");
+                output += count + ". " + actorName + ", Movies Known For: ";
+                //System.out.print(count + ". " + actorName + ", ");
+                //System.out.print("Movies Known For: ");
                 for (String movie : a.getMoviesActedIn()) {
-                    System.out.print("{" + movie + "} ");
+                    output += "{" + movie + "} ";
+                    //System.out.print("{" + movie + "} ");
                 }
                 count++;
-                System.out.println();
+                output += "\n";
+                //System.out.println();
             }
 
             // Select the Actor the user wants
             System.out.print("There were multiple actors/actresses with that name. Please select which one you meant (enter in the number): ");
-            int user_input = scan.nextInt();
+            input = JOptionPane.showInputDialog(output);
+            //int user_input = scan.nextInt();
+            int user_input = Integer.parseInt(input);
 
             if (source) {
                 sourceActor = Actors.get(user_input - 1);
                 sourceActor.setName(actorName);
-                scan.nextLine();
+                //scan.nextLine();
             }
             else {
                 destinationActor = Actors.get(user_input - 1);
