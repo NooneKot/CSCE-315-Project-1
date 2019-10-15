@@ -55,8 +55,9 @@ public class BottomToolbar extends JPanel implements ActionListener {
                 question1.FindInitialActor(sourceActor, true); // need to modify this method
                 String destinationActor = sidePanel.Q1b.destinationActor.getText();
                 question1.FindInitialActor(destinationActor, true);
+                String excludedActor = sidePanel.Q1b.excludedActor.getText();
                 
-                question1.CreateGraph();
+                question1.CreateGraph(excludedActor);
                 output = question1.getShortestPath(); // need to modify return type and have it return string
             }
             else if(sidePanel.Q2B.isSelected()){
