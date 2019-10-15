@@ -245,10 +245,11 @@ public class Q1 {
         result.clear();
     }
 
-    public void getShortestPath() {
+    public String getShortestPath() {
         System.out.println("Shortest path from " + sourceActor.getName() + " to " + destinationActor.getName());
         DijkstraShortestPath<String, RelationshipEdge> dijkstraAlg = new DijkstraShortestPath<>(graph);
         SingleSourcePaths<String, RelationshipEdge> sourceActorPaths = dijkstraAlg.getPaths(sourceActor.getName());
-        System.out.println(sourceActorPaths.getPath(destinationActor.getName()) + "\n");
+        String output = sourceActorPaths.getPath(destinationActor.getName()) + "\n";
+        return output;
     }
 }
