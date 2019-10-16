@@ -1,3 +1,5 @@
+//Connect.java is different from the JDBC file due to the different formats of the query outputs that are used by question 1 and question 2
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
